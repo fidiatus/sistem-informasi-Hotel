@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 use App\Pelanggan;
 use App\Http\Requests;
 
@@ -76,4 +77,14 @@ class PelangganController extends Controller
 		$pelanggan=Pelanggan::find($id)->delete();
 		return redirect('pelanggan')->with('message', 'Data Telah Dihapus');
 	}
+
+    public function getPdf(Request $request)
+    {
+        $pelanggan = Pelanggan::all();
+
+        $pdf = PDF::loadView('pelanggan/pdf',compact('pelanggan'))
+                ->setPaper('a4', 'potrait');
+
+            return $pdf->download('pelanggan.pdf');
+    }
 }

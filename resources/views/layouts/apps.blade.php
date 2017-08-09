@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> Sistem Informasi PKL</title>
+    <title> Hotel Sunset</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,7 +43,7 @@
                 <img src="images/img.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,Admin</span>               
+                <span>Welcome</span>               
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -61,7 +61,11 @@
                   <li><a href="{{ url('/booking') }}"><i class="fa fa-briefcase"></i>Booking</a></li>
                   <li><a href="{{ url('/pelanggan') }}"><i class="fa fa-user-md"></i>Pelanggan</a></li>
                   <li><a href="{{ url('/type') }}"><i class="fa fa-suitcase"></i>Type Kamar</a></li>  
-                  <li><a href="{{ url('/type') }}"><i class="fa fa-file"></i>Laporan</a></li>    
+                  <li><a><i class="fa fa-file"></i>Laporan<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                    <li><a href="{{ url('/booking/pdf') }}">Laporan Booking</a></li>
+                    <li><a href="{{ url('/pelanggan/pdf') }}">Laporan Pelanggan</a></li>
+                  </li>    
                   @endif       
                 </ul>
               </div>
